@@ -42,7 +42,8 @@ export default {
         project: 'Project D',
         done: false,
         priority: "high",
-      }]
+      }],
+      hover: false,
     }
   }
 };

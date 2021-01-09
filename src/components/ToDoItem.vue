@@ -3,26 +3,57 @@
     <p>Completed Tasks: {{todos.filter(todo => {return todo.done === true}).length}}</p>
     <p>Pending Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
     <el-row :gutter="12">
-      <el-col :span="10">
-        <el-card class="box-card" shadow="hover" v-for="todo in todos" :key="todo">
-          <div>
+      <el-col :span="18">
+
+        <el-card class="box-card" shadow="hover" v-for="todo in todos" :key="todo.id">
+          <div class="content" v-show="!isEditing">
+          
             <el-checkbox v-model="todo.done"></el-checkbox>
             {{ todo.title }}             
-            <i class="el-icon-arrow-up" v-if="todo.priority === 'high'" style="float: right; padding: 3px 0"> </i>
-            <i class="el-icon-minus" v-if="todo.priority === 'medium'" style="float: right; padding: 3px 0"> </i>
-            <i class="el-icon-arrow-down" v-if="todo.priority === 'low'" style="float: right; padding: 3px 0"> </i>
+            
+            <i class="el-icon-arrow-up" v-if="todo.priority === 'high'" style="float: right; padding: 3px 0" />
+            <i class="el-icon-minus" v-if="todo.priority === 'medium'" style="float: right; padding: 3px 0" />
+            <i class="el-icon-arrow-down" v-if="todo.priority === 'low'" style="float: right; padding: 3px 0" />
+            
+            <el-button type="default" icon="el-icon-edit" circle v-on:click="showForm"></el-button>
           </div>
+
+          <el-form ref="form" :model="form" label-width="120px" v-show="isEditing">
+            <el-form-item label="Todo">
+              <el-input v-model="todo.title"></el-input>
+            </el-form-item>
+            <el-form-item label="Project">
+              <el-input v-model="todo.project"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" v-on:click="hideForm">Update</el-button>
+              <el-button v-on:click="hideForm">Cancel</el-button>
+            </el-form-item>
+          </el-form>
+
         </el-card>
       </el-col>
     </el-row>
-  
   </div>
 </template>
 
 <script>
 export default {
-  props: ['todos']
-}
+  props: ['todos'],
+  data() {
+    return {
+      isEditing: false
+    };
+  },
+  methods: {
+    showForm() {
+      this.isEditing = true;
+    },
+    hideForm() {
+      this.isEditing = false;
+    },
+  }
+};
 </script>
 
 <style>
