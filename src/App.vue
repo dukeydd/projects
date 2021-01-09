@@ -1,10 +1,8 @@
 <template>
   <div id="app">
-    <h1> User Profile </h1>
+    <h1> To-Do List </h1>
     <ul>
-      <li>
-        <to-do-item></to-do-item>
-      </li>
+        <to-do-item v-bind:todos="todos"></to-do-item>
     </ul>
   </div>
 </template>
@@ -13,20 +11,43 @@
 import ToDoItem from './components/ToDoItem.vue';
 
 export default {
-  name: 'App',
+  name: 'app',
   components: {
     ToDoItem
+  },
+  props: [],
+  // {
+  //   label: { required: true, type: String },
+  //   done: { default: false, type: Boolean }
+  // }
+  data() {
+    return {
+      todos: [{
+        title: 'Todo A',
+        project: 'Project A',
+        done: false,
+        priority: "high",
+      }, {
+        title: 'Todo B',
+        project: 'Project B',
+        done: true,
+        priority: "medium",
+      }, {
+        title: 'Todo C',
+        project: 'Project C',
+        done: false,
+        priority: "low",
+      }, {
+        title: 'Todo D',
+        project: 'Project D',
+        done: false,
+        priority: "high",
+      }]
+    }
   }
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
