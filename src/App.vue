@@ -3,8 +3,6 @@
     <h1> To-Do List </h1>
     <ul>
         <to-do-item v-bind:todos="todos"></to-do-item>
-        <to-do-item v-bind:priorities="priorities"></to-do-item>
-        <to-do-item v-bind:value="value"></to-do-item>
     </ul>
   </div>
 </template>

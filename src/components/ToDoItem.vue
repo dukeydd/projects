@@ -48,9 +48,7 @@
 <script>
 export default {
   props: [
-    'todos', 
-    // 'priorities',
-    // 'value'
+    'todos'
     ],
   data() {
     return {
