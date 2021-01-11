@@ -2,18 +2,21 @@
   <div id="app">
     <h1> To-Do List </h1>
     <ul>
-        <to-do-list v-bind:todos="todos"></to-do-list>
+        <to-do-list v-bind:todos="todos" />
+        <create-todo v-on:add-todo="addTodo" />
     </ul>
   </div>
 </template>
 
 <script>
 import ToDoList from './components/ToDoList.vue';
+import CreateTodo from './components/CreateTodo.vue';
 
 export default {
   name: 'app',
   components: {
-    ToDoList
+    ToDoList,
+    CreateTodo
   },
   props: [],
   // {
@@ -46,6 +49,16 @@ export default {
         }
       ],
       hover: false,
+    }
+  },
+  methods: {
+    addTodo(title, project, done, priority) {
+      this.todos.push({
+        title,
+        project, 
+        done, 
+        priority
+      })
     }
   }
 };

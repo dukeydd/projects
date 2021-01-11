@@ -5,9 +5,11 @@
     <el-row :gutter="12">
       <el-col :span="18">
         <todo v-on:delete-todo="deleteTodo" v-for="todo in todos" v-bind:todo="todo" :key="todo.id"></todo>
-
-      </el-col>
+      </el-col>     
     </el-row>
+    <!-- <el-row :gutter="12">
+      
+    </el-row> -->
   </div>
 </template>
 
