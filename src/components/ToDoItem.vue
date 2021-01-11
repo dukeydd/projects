@@ -11,9 +11,9 @@
             <el-checkbox v-model="todo.done"></el-checkbox>
             {{ todo.title }}             
             
-            <i class="el-icon-arrow-up" v-if="todo.priority === 'high'" style="float: right; padding: 3px 0" />
-            <i class="el-icon-minus" v-if="todo.priority === 'medium'" style="float: right; padding: 3px 0" />
-            <i class="el-icon-arrow-down" v-if="todo.priority === 'low'" style="float: right; padding: 3px 0" />
+            <i class="el-icon-arrow-up" v-if="todo.priority === 'High'" style="float: right; padding: 3px 0" />
+            <i class="el-icon-minus" v-if="todo.priority === 'Medium'" style="float: right; padding: 3px 0" />
+            <i class="el-icon-arrow-down" v-if="todo.priority === 'Low'" style="float: right; padding: 3px 0" />
             
             <el-button type="default" icon="el-icon-edit" circle v-on:click="showForm"></el-button>
           </div>
@@ -25,12 +25,20 @@
             <el-form-item label="Project">
               <el-input v-model="todo.project"></el-input>
             </el-form-item>
+            <el-form-item label="Priority">
+              <el-select v-model="todo.priority" placeholder="Select" value-key="id">
+                <el-option
+                  v-for="prio in priorities"
+                  :key="prio.value"
+                  :label="prio.label"
+                  :value="prio.value">
+                </el-option>
+              </el-select>
+            </el-form-item>
             <el-form-item>
               <el-button type="primary" v-on:click="hideForm">Update</el-button>
-              <el-button v-on:click="hideForm">Cancel</el-button>
             </el-form-item>
           </el-form>
-
         </el-card>
       </el-col>
     </el-row>
@@ -39,10 +47,29 @@
 
 <script>
 export default {
-  props: ['todos'],
+  props: [
+    'todos', 
+    // 'priorities',
+    // 'value'
+    ],
   data() {
     return {
-      isEditing: false
+      isEditing: false,
+      priorities: [
+        {
+          value: 'High',
+          label: 'High'
+        },
+        {
+          value: 'Medium',
+          label: 'Medium'
+        },
+        {
+          value: 'Low',
+          label: 'Low'
+        }
+      ],
+      value: '',
     };
   },
   methods: {

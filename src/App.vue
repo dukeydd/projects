@@ -3,6 +3,8 @@
     <h1> To-Do List </h1>
     <ul>
         <to-do-item v-bind:todos="todos"></to-do-item>
+        <to-do-item v-bind:priorities="priorities"></to-do-item>
+        <to-do-item v-bind:value="value"></to-do-item>
     </ul>
   </div>
 </template>
@@ -22,27 +24,29 @@ export default {
   // }
   data() {
     return {
-      todos: [{
-        title: 'Todo A',
-        project: 'Project A',
-        done: false,
-        priority: "high",
-      }, {
-        title: 'Todo B',
-        project: 'Project B',
-        done: true,
-        priority: "medium",
-      }, {
-        title: 'Todo C',
-        project: 'Project C',
-        done: false,
-        priority: "low",
-      }, {
-        title: 'Todo D',
-        project: 'Project D',
-        done: false,
-        priority: "high",
-      }],
+      todos: [
+        {
+          title: 'Todo A',
+          project: 'Project A',
+          done: false,
+          priority: "High",
+        }, {
+          title: 'Todo B',
+          project: 'Project B',
+          done: true,
+          priority: "Medium",
+        }, {
+          title: 'Todo C',
+          project: 'Project C',
+          done: false,
+          priority: "Low",
+        }, {
+          title: 'Todo D',
+          project: 'Project D',
+          done: false,
+          priority: "High",
+        }
+      ],
       hover: false,
     }
   }
