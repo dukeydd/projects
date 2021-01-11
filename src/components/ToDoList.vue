@@ -4,7 +4,8 @@
     <p>Pending Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
     <el-row :gutter="12">
       <el-col :span="18">
-        <todo v-for="todo in todos" v-bind:todo="todo" :key="todo.id"></todo>
+        <todo v-on:delete-todo="deleteTodo" v-for="todo in todos" v-bind:todo="todo" :key="todo.id"></todo>
+
       </el-col>
     </el-row>
   </div>
@@ -18,6 +19,12 @@ export default {
   ],
   components: {
     Todo
+  },
+  methods: {
+    deleteTodo(todo) {
+      const todoIndex = this.todos.indexOf(todo);
+      this.todos.splice(todoIndex, 1);
+    }
   }
 };
 </script>

@@ -9,7 +9,8 @@
       <i class="el-icon-minus" v-if="todo.priority === 'Medium'" style="float: right; padding: 3px 0" />
       <i class="el-icon-arrow-down" v-if="todo.priority === 'Low'" style="float: right; padding: 3px 0" />
       
-      <el-button type="default" icon="el-icon-edit" circle v-on:click="showForm"></el-button>
+      <el-button type="default" icon="el-icon-edit" circle v-on:click="showForm" />
+      <el-button type="default" icon="el-icon-delete" circle v-on:click="deleteTodo(todo)" />
     </div>
 
     <el-form ref="form" :model="form" label-width="120px" v-show="isEditing">
@@ -66,6 +67,9 @@
       hideForm() {
         this.isEditing = false;
       },
+      deleteTodo(todo) {
+        this.$emit('delete-todo', todo);
+      }
     }
   }
 </script>
