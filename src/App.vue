@@ -2,18 +2,18 @@
   <div id="app">
     <h1> To-Do List </h1>
     <ul>
-        <to-do-item v-bind:todos="todos"></to-do-item>
+        <to-do-list v-bind:todos="todos"></to-do-list>
     </ul>
   </div>
 </template>
 
 <script>
-import ToDoItem from './components/ToDoItem.vue';
+import ToDoList from './components/ToDoList.vue';
 
 export default {
   name: 'app',
   components: {
-    ToDoItem
+    ToDoList
   },
   props: [],
   // {
