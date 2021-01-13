@@ -64,19 +64,13 @@ export default {
     },
     sendForm() {
       if (this.titleText.length > 0 && this.projectText.length > 0) {
-        // if no priority then default to something
-        const title = this.titleText;
-        const project = this.projectText;
-        console.log(title, project);
-        // const priority= this.priorityText;
-        this.$emit('add-todo', {
-          title,
-          project,
+        const newTodo = {
+          title: this.titleText,
+          project: this.projectText,
           done: false,
-          priority: "Medium",
-        });
-        this.newTodoText = '';
-        console.log(this, "hi");
+          priority: this.priorityText,
+        };
+        this.$emit('add-todo', newTodo);
       }
       this.isCreating = false;
     },

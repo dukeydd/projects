@@ -7,18 +7,16 @@
         <todo v-on:delete-todo="deleteTodo" v-for="todo in todos" v-bind:todo="todo" :key="todo.id"></todo>
       </el-col>     
     </el-row>
-    <!-- <el-row :gutter="12">
-      
-    </el-row> -->
   </div>
 </template>
 
 <script>
 import Todo from './ToDo';
 export default {
-  props: [
-    'todos'
-  ],
+  props: ['todos'],
+  // {
+  //   'todos': Array
+  // },
   components: {
     Todo
   },

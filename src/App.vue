@@ -19,10 +19,6 @@ export default {
     CreateTodo
   },
   props: [],
-  // {
-  //   label: { required: true, type: String },
-  //   done: { default: false, type: Boolean }
-  // }
   data() {
     return {
       todos: [
@@ -52,13 +48,8 @@ export default {
     }
   },
   methods: {
-    addTodo(title, project, done, priority) {
-      this.todos.push({
-        title,
-        project, 
-        done: false, 
-        priority
-      });
+    addTodo(newTodo) {
+      this.todos.push(newTodo);
     },
   }
 };
