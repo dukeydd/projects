@@ -10,7 +10,7 @@
           <el-form-item label="Project">
               <el-input v-model="projectText" ref="project" defaultValue ="" />
           </el-form-item>
-          <!-- <el-form-item label="Priority">
+          <el-form-item label="Priority">
               <el-select v-model="priorityText" ref="priority" placeholder="Select" value-key="id">
                 <el-option
                     v-for="prio in priorities"
@@ -19,10 +19,10 @@
                     :value="prio.value">
                 </el-option>
               </el-select>
-          </el-form-item> -->
+          </el-form-item>
           <el-form-item>
             <el-button type="primary" v-on:click="sendForm">Create</el-button>
-            <el-button type="primary" v-on:click="closeForm">Cancel</el-button>
+            <el-button type="default" v-on:click="closeForm">Cancel</el-button>
           </el-form-item>
         </el-form>
       </el-card>
@@ -67,14 +67,16 @@ export default {
         // if no priority then default to something
         const title = this.titleText;
         const project = this.projectText;
+        console.log(title, project);
         // const priority= this.priorityText;
-        this.$emit('create-todo', {
+        this.$emit('add-todo', {
           title,
           project,
           done: false,
           priority: "Medium",
         });
         this.newTodoText = '';
+        console.log(this, "hi");
       }
       this.isCreating = false;
     },

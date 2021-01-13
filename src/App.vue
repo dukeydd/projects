@@ -56,10 +56,10 @@ export default {
       this.todos.push({
         title,
         project, 
-        done, 
+        done: false, 
         priority
-      })
-    }
+      });
+    },
   }
 };
 </script>
