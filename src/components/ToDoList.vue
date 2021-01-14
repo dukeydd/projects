@@ -1,9 +1,13 @@
 <template>
   <div>
-    <p>Completed Tasks: {{todos.filter(todo => {return todo.done === true}).length}}</p>
-    <p>Pending Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
-    <el-row :gutter="12">
-      <el-col :span="18">
+    <el-row type="flex" justify="center">
+      <p>Completed Tasks: {{todos.filter(todo => {return todo.done === true}).length}}</p>
+    </el-row>
+    <el-row type="flex" justify="center">
+      <p>Pending Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
+    </el-row>
+    <el-row type="flex" justify="center">
+      <el-col :span="9">
         <todo v-on:delete-todo="deleteTodo" v-for="todo in todos" v-bind:todo="todo" :key="todo.id"></todo>
       </el-col>     
     </el-row>

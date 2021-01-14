@@ -1,6 +1,6 @@
 <template>
-  <el-row :gutter="12">
-    <el-col :span="18">
+  <el-row type="flex" justify="center">
+    <el-col :span="9">
       <el-card class="box-card">
         <el-button type="default" icon="el-icon-plus" circle v-on:click="openForm" v-show="!isCreating" />
         <el-form ref="form" :model="form" label-width="120px" v-show="isCreating">
