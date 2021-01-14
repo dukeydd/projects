@@ -2,12 +2,12 @@
   <el-card class="box-card" shadow="hover">
     <div class="content" v-show="!isEditing">
     
-      <el-checkbox v-model="todo.done"></el-checkbox>
+      <el-checkbox v-model="todo.done" v-on:change="completeTodo(todo)"></el-checkbox>
       {{ todo.title }}             
-      
-      <i class="el-icon-arrow-up" v-if="todo.priority === 'High'" style="float: right; padding: 3px 0" />
-      <i class="el-icon-minus" v-if="todo.priority === 'Medium'" style="float: right; padding: 3px 0" />
-      <i class="el-icon-arrow-down" v-if="todo.priority === 'Low'" style="float: right; padding: 3px 0" />
+
+      <i class="el-icon-arrow-up" v-if="todo.priority === 'High'" style="float: right; padding: 12px 1px" />
+      <i class="el-icon-minus" v-if="todo.priority === 'Medium'" style="float: right; padding: 12px 1px" />
+      <i class="el-icon-arrow-down" v-if="todo.priority === 'Low'" style="float: right; padding: 12px 1px" />
       
       <el-button type="default" icon="el-icon-edit" circle v-on:click="showForm" />
       <el-button type="default" icon="el-icon-delete" circle v-on:click="deleteTodo(todo)" />
@@ -69,6 +69,10 @@
       },
       deleteTodo(todo) {
         this.$emit('delete-todo', todo);
+      },
+      completeTodo(todo, ) {
+        this.$emit('complete-todo', todo);
+        console.log(todo);
       }
     }
   }

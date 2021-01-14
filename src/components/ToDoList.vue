@@ -8,7 +8,7 @@
     </el-row>
     <el-row type="flex" justify="center">
       <el-col :span="9">
-        <todo v-on:delete-todo="deleteTodo" v-for="todo in todos" v-bind:todo="todo" :key="todo.id"></todo>
+        <todo v-on:delete-todo="deleteTodo" v-on:complete-todo="completeTodo" v-for="todo in todos" v-bind:todo="todo" :key="todo.id"></todo>
       </el-col>     
     </el-row>
   </div>
@@ -17,10 +17,9 @@
 <script>
 import Todo from './ToDo';
 export default {
-  props: ['todos'],
-  // {
-  //   'todos': Array
-  // },
+  props: {
+    'todos': Array
+  },
   components: {
     Todo
   },
@@ -28,6 +27,11 @@ export default {
     deleteTodo(todo) {
       const todoIndex = this.todos.indexOf(todo);
       this.todos.splice(todoIndex, 1);
+    },
+    completeTodo(todo) {
+      const todoIndex = this.todos.indexOf(todo);
+      this.todos[todoIndex].done != this.todos[todoIndex].done;
+      console.log(this.todos);
     }
   }
 };
