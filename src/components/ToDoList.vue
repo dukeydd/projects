@@ -31,7 +31,6 @@ export default {
     completeTodo(todo) {
       const todoIndex = this.todos.indexOf(todo);
       this.todos[todoIndex].done != this.todos[todoIndex].done;
-      console.log(this.todos);
     }
   }
 };

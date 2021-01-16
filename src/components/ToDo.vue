@@ -72,7 +72,6 @@
       },
       completeTodo(todo, ) {
         this.$emit('complete-todo', todo);
-        console.log(todo);
       }
     }
   }
