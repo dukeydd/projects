@@ -16,6 +16,9 @@ const TodosSchema = mongoose.Schema({
         type: String,
         enum: ['High', 'Medium', 'Low']
     }
+}, 
+{
+    collection: 'rest' 
 });
 
 module.exports = mongoose.model('Todos', TodosSchema);
