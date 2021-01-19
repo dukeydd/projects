@@ -2,15 +2,16 @@
   <el-card class="box-card" shadow="hover">
     <div class="content" v-show="!isEditing">
     
-      <el-checkbox v-model="todo.done" v-on:change="completeTodo(todo)"></el-checkbox>
-      {{ todo.title }}             
-
-      <i class="el-icon-arrow-up" v-if="todo.priority === 'High'" style="float: right; padding: 12px 1px" />
-      <i class="el-icon-minus" v-if="todo.priority === 'Medium'" style="float: right; padding: 12px 1px" />
-      <i class="el-icon-arrow-down" v-if="todo.priority === 'Low'" style="float: right; padding: 12px 1px" />
+      <!-- <el-checkbox v-model="todo.done" v-on:change="completeTodo(todo)"></el-checkbox> -->
       
+      <i class="el-icon-arrow-up" v-if="todo.priority === 'High'" style="padding: 10px 10px" />
+      <i class="el-icon-minus" v-if="todo.priority === 'Medium'" style="padding: 10px 10px" />
+      <i class="el-icon-arrow-down" v-if="todo.priority === 'Low'" style="padding: 10px 10px" />
+      {{ todo.title }}
+      <span style="float:right">
       <el-button type="default" icon="el-icon-edit" circle v-on:click="showForm" />
       <el-button type="default" icon="el-icon-delete" circle v-on:click="deleteTodo(todo)" />
+      </span>
     </div>
 
     <el-form ref="form" :model="form" label-width="120px" v-show="isEditing">

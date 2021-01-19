@@ -1,5 +1,4 @@
 const express = require('express');
-const { updateOne } = require('../models/Todos');
 const router = express.Router();
 const Todos = require('../models/Todos');
 

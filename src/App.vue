@@ -1,10 +1,8 @@
 <template>
   <div id="app">
     <h1 style="text-align:center">To-Do List</h1>
-    <ul>
-        <to-do-list v-bind:todos="todos" />
-        <create-todo v-on:add-todo="addTodo" />
-    </ul>
+      <to-do-list v-bind:todos="todos" />
+      <create-todo v-on:add-todo="addTodo" />
   </div>
 </template>
 
@@ -56,5 +54,13 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
+html, body {
+  font-family: 'Roboto', sans-serif;
+}
+
+#app {
+  font-family: 'Roboto', sans-serif;
+}
 </style>
