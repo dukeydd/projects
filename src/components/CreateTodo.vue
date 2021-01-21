@@ -5,7 +5,7 @@
         <el-button type="default" icon="el-icon-plus" circle v-on:click="openForm" v-show="!isCreating" />
         <el-form ref="form" :model="form" label-width="120px" v-show="isCreating">
           <el-form-item label="Todo">
-              <el-input v-model="titleText" ref="title" defaultValue ="" />
+              <el-input v-model="nameText" ref="name" defaultValue ="" />
           </el-form-item>
           <el-form-item label="Project">
               <el-input v-model="projectText" ref="project" defaultValue ="" />
@@ -34,7 +34,7 @@
 export default {
   data() {
     return {
-      titleText: '',
+      nameText: '',
       projectText: '',
       priorityText: '',
       isCreating: false,
@@ -63,9 +63,9 @@ export default {
       this.isCreating = false;
     },
     sendForm() {
-      if (this.titleText.length > 0 && this.projectText.length > 0) {
+      if (this.nameText.length > 0 && this.projectText.length > 0) {
         const newTodo = {
-          title: this.titleText,
+          name: this.nameText,
           project: this.projectText,
           done: false,
           priority: this.priorityText,

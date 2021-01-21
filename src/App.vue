@@ -9,6 +9,7 @@
 <script>
 import ToDoList from './components/ToDoList.vue';
 import CreateTodo from './components/CreateTodo.vue';
+const axios = require('axios');
 
 export default {
   name: 'app',
@@ -17,32 +18,15 @@ export default {
     CreateTodo
   },
   props: [],
+  mounted () {
+    axios
+      .get('http://localhost:3000/todos')
+      .then(response => (this.todos = response.data))
+  },
   data() {
     return {
-      todos: [
-        {
-          title: 'Todo A',
-          project: 'Project A',
-          done: false,
-          priority: "High",
-        }, {
-          title: 'Todo B',
-          project: 'Project B',
-          done: true,
-          priority: "Medium",
-        }, {
-          title: 'Todo C',
-          project: 'Project C',
-          done: false,
-          priority: "Low",
-        }, {
-          title: 'Todo D',
-          project: 'Project D',
-          done: false,
-          priority: "High",
-        }
-      ],
-      hover: false,
+      todos: this.todos,
+      hover: false
     }
   },
   methods: {

@@ -7,7 +7,7 @@
       <i class="el-icon-arrow-up" v-if="todo.priority === 'High'" style="padding: 10px 10px" />
       <i class="el-icon-minus" v-if="todo.priority === 'Medium'" style="padding: 10px 10px" />
       <i class="el-icon-arrow-down" v-if="todo.priority === 'Low'" style="padding: 10px 10px" />
-      {{ todo.title }}
+      {{ todo.name }}
       <span style="float:right">
       <el-button type="default" icon="el-icon-edit" circle v-on:click="showForm" />
       <el-button type="default" icon="el-icon-delete" circle v-on:click="deleteTodo(todo)" />
@@ -16,7 +16,7 @@
 
     <el-form ref="form" :model="form" label-width="120px" v-show="isEditing">
       <el-form-item label="Todo">
-        <el-input v-model="todo.title"></el-input>
+        <el-input v-model="todo.name"></el-input>
       </el-form-item>
       <el-form-item label="Project">
         <el-input v-model="todo.project"></el-input>
