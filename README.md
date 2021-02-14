@@ -1,24 +1,16 @@
 # starting-out
 
-## Project setup
-```
-npm install
-```
+### Start mongodb
+```sudo systemctl start mongod```
+```sudo systemctl status mongod```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### Mongo
+using database "rest" and collection called "todos"
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### Start API
+```npm start```
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Start website
+```npm start serve```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+This will start a website on ```http://localhost:8080/```
